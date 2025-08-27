@@ -1,0 +1,6 @@
+{
+  "name": "netlify-plugin-sharp-installer",
+  "version": "1.0.0",
+  "description": "Netlify build plugin to properly install sharp for Linux",
+  "main": "index.js"
+}

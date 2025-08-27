@@ -1,0 +1,6 @@
+{
+  "name": "netlify-plugin-fix-astro-image",
+  "version": "1.0.0",
+  "description": "Netlify build plugin to fix Astro image processing",
+  "main": "index.js"
+}

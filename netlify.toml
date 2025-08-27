@@ -1,6 +1,6 @@
 [build]
   publish = "dist/"
-  command = "pnpm run build"
+  command = "npm rebuild esbuild --platform=linux --arch=x64 && npm rebuild sharp --platform=linux --arch=x64 && pnpm run build"
 
 [build.environment]
   SHARP_IGNORE_GLOBAL_LIBVIPS = "true"

@@ -10,4 +10,5 @@ episode: 17
 season: 3
 episodeType: full
 ---
+
 Beginning our 2010 discussions on Amillennialism, this February 5 episode examines the Amillennial understanding of the second coming of Christ and final judgment.

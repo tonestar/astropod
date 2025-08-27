@@ -10,4 +10,5 @@ episode: 25
 season: 3
 episodeType: full
 ---
+
 Continuing our October 2010 series on Amillennialism, this episode explores the concept of inaugurated eschatology and its significance for Amillennial theology.

@@ -10,4 +10,5 @@ episode: 28
 season: 3
 episodeType: full
 ---
+
 In our final 2010 episode on Amillennialism from November 19, we summarize key Amillennial teachings and their implications for Christian living and hope.

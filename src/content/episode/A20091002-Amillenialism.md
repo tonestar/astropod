@@ -10,4 +10,5 @@ episode: 14
 season: 3
 episodeType: full
 ---
+
 In our October 2, 2009 discussion on Amillennialism, we address the relationship between the church and Israel from an Amillennial perspective.

@@ -10,4 +10,5 @@ episode: 9
 season: 3
 episodeType: full
 ---
+
 In our October 24, 2008 discussion on Amillennialism, we address common objections to this theological position and offer responses from an Amillennial perspective.

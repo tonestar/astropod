@@ -10,4 +10,5 @@ episode: 26
 season: 3
 episodeType: full
 ---
+
 In our November 5, 2010 discussion, we examine how Amillennial theology understands the nature and purpose of biblical prophecy.

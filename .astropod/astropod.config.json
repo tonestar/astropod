@@ -1,23 +1,20 @@
 {
-  "copyright": "© 2025 Your Podcast",
+  "copyright": "",
   "theme": "light",
   "fundingText": "",
-  "author": "Your Name",
-  "name": "Your Podcast Name",
+  "author": "Kim Riddlebarger",
+  "name": "Kim's",
   "banner": "/banner.webp",
   "pageSize": 15,
   "fundingUrl": "",
-  "owner": "Your Name",
+  "owner": "Tony",
   "favicon": "/favicon.svg",
   "explicit": false,
   "cover": "/cover.jpg",
   "language": "en",
-  "link": "https://your-deployed-site.netlify.app",
-  "email": "your.email@example.com",
-  "description": "Your podcast description goes here. This will appear in podcast directories and your website's metadata.",
-  "category": [
-    "Religion",
-    "Christianity"
-  ],
+  "link": "https://lucent-strudel-bbfdc9.netlify.app",
+  "email": "tonymcbony+mp3site@gmail.com",
+  "description": "YKim Riddlebarger's talks on Amillenialism.",
+  "category": ["Religion", "Christianity"],
   "feedSize": "50"
 }

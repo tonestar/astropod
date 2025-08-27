@@ -10,4 +10,5 @@ episode: 13
 season: 3
 episodeType: full
 ---
+
 Resuming our Amillennialism series in September 2009, this episode explores how Amillennial theology interprets Old Testament prophecies about Israel and their fulfillment.

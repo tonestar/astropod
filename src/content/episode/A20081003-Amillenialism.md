@@ -10,4 +10,5 @@ episode: 6
 season: 3
 episodeType: full
 ---
+
 Resuming our Amillennialism series on October 3, 2008, we discuss how this theological perspective interprets the book of Revelation and apocalyptic literature.

@@ -10,4 +10,5 @@ episode: 7
 season: 3
 episodeType: full
 ---
+
 In this October 10, 2008 episode on Amillennialism, we explore the concept of the "already but not yet" kingdom of God as understood in Amillennial theology.

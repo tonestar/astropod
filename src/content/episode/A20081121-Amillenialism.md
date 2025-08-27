@@ -10,4 +10,5 @@ episode: 11
 season: 3
 episodeType: full
 ---
+
 In this November 21, 2008 installment of our Amillennialism series, we discuss the binding of Satan and how this concept relates to the present age in Amillennial theology.

@@ -10,4 +10,5 @@ episode: 19
 season: 3
 episodeType: full
 ---
+
 Continuing our series on February 26, 2010, we explore how Amillennial theology understands the nature and timing of the resurrection.

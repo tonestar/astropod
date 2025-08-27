@@ -10,4 +10,5 @@ episode: 18
 season: 3
 episodeType: full
 ---
+
 In this February 19, 2010 installment, we discuss the Amillennial interpretation of Daniel's prophecies and their significance for understanding biblical eschatology.

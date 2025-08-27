@@ -10,4 +10,5 @@ episode: 10
 season: 3
 episodeType: full
 ---
+
 This November 7, 2008 episode on Amillennialism examines the concept of the millennium as presented in Revelation 20 and how it is understood in Amillennial thought.

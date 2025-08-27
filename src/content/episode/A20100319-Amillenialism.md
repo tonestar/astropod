@@ -10,4 +10,5 @@ episode: 22
 season: 3
 episodeType: full
 ---
+
 In our March 19, 2010 discussion, we explore the pastoral implications of Amillennial theology for Christian faith and practice.

@@ -10,4 +10,5 @@ episode: 24
 season: 3
 episodeType: full
 ---
+
 In this October 15, 2010 episode, we examine how the early church fathers viewed eschatology and the development of Amillennial thought in church history.

@@ -10,4 +10,5 @@ episode: 23
 season: 3
 episodeType: full
 ---
+
 Resuming our Amillennialism series on October 8, 2010, we discuss the relationship between Amillennial theology and biblical hermeneutics.

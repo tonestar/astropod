@@ -10,4 +10,5 @@ episode: 15
 season: 3
 episodeType: full
 ---
+
 This October 9, 2009 episode continues our exploration of Amillennialism, focusing on the New Testament's reinterpretation of Old Testament prophecies.

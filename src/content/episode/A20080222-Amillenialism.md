@@ -10,4 +10,5 @@ episode: 2
 season: 3
 episodeType: full
 ---
+
 Continuing our Amillennialism series, this February 22, 2008 episode explores the historical development of Amillennial theology and its key proponents throughout church history.

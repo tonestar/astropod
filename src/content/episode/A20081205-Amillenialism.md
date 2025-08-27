@@ -10,4 +10,5 @@ episode: 12
 season: 3
 episodeType: full
 ---
+
 Concluding our 2008 discussions on Amillennialism, this December 5 episode explores the relationship between covenant theology and Amillennial eschatology.

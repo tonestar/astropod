@@ -10,4 +10,5 @@ episode: 8
 season: 3
 episodeType: full
 ---
+
 Continuing our series on October 17, 2008, we delve deeper into the implications of Amillennial theology for Christian living and eschatological hope.

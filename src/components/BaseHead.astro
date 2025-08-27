@@ -19,6 +19,10 @@ const display_image = image ? image : astropodConfig.cover;
 <link rel="icon" type="image/svg+xml" href={astropodConfig.favicon} />
 <meta name="generator" content={Astro.generator} />
 
+<!-- Netlify Identity Widget -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+></script>
+
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
@@ -29,11 +33,17 @@ const display_image = image ? image : astropodConfig.cover;
 <meta property="og:url" content={astropodConfig.link} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(display_image, astropodConfig.link)} />
+<meta
+  property="og:image"
+  content={new URL(display_image, astropodConfig.link)}
+/>
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={astropodConfig.link} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(display_image, astropodConfig.link)} />
+<meta
+  property="twitter:image"
+  content={new URL(display_image, astropodConfig.link)}
+/>

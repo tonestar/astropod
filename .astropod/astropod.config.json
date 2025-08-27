@@ -1,23 +1,23 @@
 {
-  "copyright": "",
+  "copyright": "© 2025 Your Podcast",
   "theme": "light",
   "fundingText": "",
-  "author": "Author's name",
-  "name": "Podcast Name",
+  "author": "Your Name",
+  "name": "Your Podcast Name",
   "banner": "/banner.webp",
   "pageSize": 15,
   "fundingUrl": "",
-  "owner": "",
+  "owner": "Your Name",
   "favicon": "/favicon.svg",
   "explicit": false,
   "cover": "/cover.jpg",
   "language": "en",
-  "link": "https://your-website-url.netlify.app",
-  "email": "your.email@gmail.com",
-  "description": "A short description of your podcast. We suggest creating a podcast description between 600-900 characters or 120-170 words in length.",
+  "link": "https://your-deployed-site.netlify.app",
+  "email": "your.email@example.com",
+  "description": "Your podcast description goes here. This will appear in podcast directories and your website's metadata.",
   "category": [
-    "Technology",
-    "Business"
+    "Religion",
+    "Christianity"
   ],
-  "feedSize": ""
+  "feedSize": "50"
 }

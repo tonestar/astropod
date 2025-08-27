@@ -11,7 +11,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "postinstall": "npm rebuild sharp --platform=linux --arch=x64"
+    "postinstall": "npm rebuild sharp --platform=linux --arch=x64",
+    "prebuild": "npm rebuild esbuild --platform=darwin --arch=x64"
   },
   "dependencies": {
     "@astrojs/image": "^0.17.2",

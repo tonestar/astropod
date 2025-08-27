@@ -12,7 +12,9 @@
     "preview": "astro preview",
     "astro": "astro",
     "postinstall": "npm rebuild sharp --platform=linux --arch=x64",
-    "prebuild": "npm rebuild esbuild --platform=darwin --arch=x64"
+    "prebuild": "npm rebuild esbuild --platform=darwin --arch=x64",
+    "cms": "netlify-cms-proxy-server",
+    "dev:cms": "concurrently \"npm run dev\" \"npm run cms\""
   },
   "dependencies": {
     "@astrojs/image": "^0.17.2",

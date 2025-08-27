@@ -1,0 +1,8 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update
+  local_backend: true # Use local backend for development
+
+local_backend: true # Additional flag for local backend
+
+# When using local backend, you need to run `npx netlify-cms-proxy-server` in another terminal

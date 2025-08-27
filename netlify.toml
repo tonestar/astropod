@@ -1,6 +1,6 @@
 [build]
   publish = "dist/"
-  command = "npm rebuild esbuild --platform=linux --arch=x64 && npm rebuild sharp --platform=linux --arch=x64 && pnpm run build"
+  command = "cp netlify.astro.config.mjs astro.config.mjs && pnpm run build"
 
 [build.environment]
   SHARP_IGNORE_GLOBAL_LIBVIPS = "true"

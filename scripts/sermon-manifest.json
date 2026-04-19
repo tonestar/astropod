@@ -7016,5 +7016,26 @@
     "sizeMB": 36.1,
     "durationSecs": 2364,
     "duration": "0:39:24"
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/luke-16-1-31/",
+    "slug": "luke-16-1-31",
+    "title": "Luke 16:1-31",
+    "speaker": "Joe Fleener",
+    "date": "19 April, 2026",
+    "series": "Luke",
+    "topics": [
+      "Luke"
+    ],
+    "fileId": "1ny8UcKS63EaALs9767go4Cs67UiXKf4v",
+    "driveHref": "https://drive.google.com/file/d/1ny8UcKS63EaALs9767go4Cs67UiXKf4v/view?usp=sharing",
+    "sitemapDate": "2026-04-19T13:13:38+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/luke/2026/luke-16-1-31.mp3",
+    "status": "done",
+    "r2Key": "sermons/luke/2026/luke-16-1-31.mp3",
+    "sizeMB": 34.9,
+    "durationSecs": 2287,
+    "duration": "0:38:07"
   }
 ]

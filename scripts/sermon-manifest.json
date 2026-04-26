@@ -7037,5 +7037,26 @@
     "sizeMB": 34.9,
     "durationSecs": 2287,
     "duration": "0:38:07"
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/luke-17-1-10/",
+    "slug": "luke-17-1-10",
+    "title": "Luke 17:1-10",
+    "speaker": "Joe Fleener",
+    "date": "26 April, 2026",
+    "series": "Luke",
+    "topics": [
+      "Ephesians, Luke"
+    ],
+    "fileId": "1Lptk_Tkjz9OrgVYUw5LLf_7MR5bknOhS",
+    "driveHref": "https://drive.google.com/file/d/1Lptk_Tkjz9OrgVYUw5LLf_7MR5bknOhS/view?usp=sharing",
+    "sitemapDate": "2026-04-26T13:12:36+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/luke/2026/luke-17-1-10.mp3",
+    "status": "done",
+    "r2Key": "sermons/luke/2026/luke-17-1-10.mp3",
+    "sizeMB": 41.6,
+    "durationSecs": 2729,
+    "duration": "0:45:29"
   }
 ]

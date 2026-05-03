@@ -7058,5 +7058,47 @@
     "sizeMB": 41.6,
     "durationSecs": 2729,
     "duration": "0:45:29"
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/doctrines-of-grace-part-17/",
+    "slug": "doctrines-of-grace-part-17",
+    "title": "Doctrines of Grace – Part 17",
+    "speaker": "Joe Fleener",
+    "date": "3 May, 2026",
+    "series": "Doctrines of Grace",
+    "topics": [
+      "(Topical)"
+    ],
+    "fileId": "1nk65ZvRLe031zpRLYkA_7jigwhDofr6f",
+    "driveHref": "https://drive.google.com/file/d/1nk65ZvRLe031zpRLYkA_7jigwhDofr6f/view?usp=sharing",
+    "sitemapDate": "2026-05-03T12:58:54+12:00",
+    "category": "seminar",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/seminars/doctrines-of-grace/2026/doctrines-of-grace-part-17.mp3",
+    "status": "done",
+    "r2Key": "seminars/doctrines-of-grace/2026/doctrines-of-grace-part-17.mp3",
+    "sizeMB": 30.5,
+    "durationSecs": 2668,
+    "duration": "0:44:28"
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/luke-17-11-37/",
+    "slug": "luke-17-11-37",
+    "title": "Luke 17:11-37",
+    "speaker": "Joe Fleener",
+    "date": "3 May, 2026",
+    "series": "Luke",
+    "topics": [
+      "Luke"
+    ],
+    "fileId": "1BLq97RycNVYmTGgpGwc15w9iL_k49A7v",
+    "driveHref": "https://drive.google.com/file/d/1BLq97RycNVYmTGgpGwc15w9iL_k49A7v/view?usp=sharing",
+    "sitemapDate": "2026-05-03T12:59:51+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/luke/2026/luke-17-11-37.mp3",
+    "status": "done",
+    "r2Key": "sermons/luke/2026/luke-17-11-37.mp3",
+    "sizeMB": 19.4,
+    "durationSecs": 1696,
+    "duration": "0:28:16"
   }
 ]

@@ -21,6 +21,12 @@
  *   --category=VALUE   Override the category for all processed messages.
  *                      Values: sermon | seminar | auto (default: auto)
  *                      'auto' detects based on the series name (see SEMINAR_SERIES below).
+ *   --normalize-all    Retroactively normalize loudness of all uploaded audio in R2
+ *                      to EBU R128 -16 LUFS. Already-normalized entries are skipped.
+ *                      Combine with --limit=N to process in batches.
+ *   --normalize-test=<path>
+ *                      Normalize a local MP3 and write <path>.normalized.mp3 next to it.
+ *                      Use this to verify ffmpeg is working before running --normalize-all.
  *
  * Required env vars (not needed for --dry-run):
  *   R2_ACCESS_KEY_ID       - Cloudflare R2 access key
@@ -33,9 +39,11 @@
  *   npm install cheerio @aws-sdk/client-s3
  */
 
-import { writeFileSync, existsSync, readFileSync } from "fs";
+import { writeFileSync, existsSync, readFileSync, mkdtempSync, unlinkSync, rmdirSync } from "fs";
 import { createInterface } from "readline";
-import { resolve, dirname } from "path";
+import { resolve, dirname, join } from "path";
+import { tmpdir } from "os";
+import { spawnSync } from "child_process";
 import { fileURLToPath } from "url";
 import { parseBuffer } from "music-metadata";
 import {
@@ -45,6 +53,25 @@ import {
   ListObjectsV2Command,
 } from "@aws-sdk/client-s3";
 import * as cheerio from "cheerio";
+
+// ─── macOS TLS fix ───────────────────────────────────────────────────────────
+// Node.js doesn't read from the macOS system keychain, so some CAs trusted by
+// Safari/Chrome are unknown to Node. Re-launch with system root certs injected.
+if (process.platform === "darwin" && !process.env.NODE_EXTRA_CA_CERTS) {
+  const caResult = spawnSync("security", [
+    "find-certificate", "-a", "-p",
+    "/System/Library/Keychains/SystemRootCertificates.keychain",
+  ]);
+  if (!caResult.error && caResult.status === 0) {
+    const caPath = join(tmpdir(), "node-macos-roots.pem");
+    writeFileSync(caPath, caResult.stdout);
+    const child = spawnSync(process.execPath, process.argv.slice(1), {
+      env: { ...process.env, NODE_EXTRA_CA_CERTS: caPath },
+      stdio: "inherit",
+    });
+    process.exit(child.status ?? 0);
+  }
+}
 
 // Load scripts/.env automatically if it exists
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -61,6 +88,9 @@ const LIST_SERIES = process.argv.includes("--list-series");
 const VERIFY = process.argv.includes("--verify");
 const FIX_METADATA = process.argv.includes("--fix-metadata");
 const UPLOAD_ALL = process.argv.includes("--upload-all");
+const NORMALIZE_ALL = process.argv.includes("--normalize-all");
+const normalizeTestArg = process.argv.find((a) => a.startsWith("--normalize-test="));
+const NORMALIZE_TEST = normalizeTestArg ? normalizeTestArg.split("=").slice(1).join("=") : null;
 const limitArg = process.argv.find((a) => a.startsWith("--limit="));
 const LIMIT = limitArg ? parseInt(limitArg.split("=")[1], 10) : Infinity;
 const categoryArg = process.argv.find((a) => a.startsWith("--category="));
@@ -368,6 +398,81 @@ function formatDuration(seconds) {
   return `${h}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
 }
 
+// ─── Audio loudness normalization ────────────────────────────────────────────
+
+/**
+ * Normalize audio to EBU R128 -16 LUFS using ffmpeg two-pass loudnorm.
+ * Gracefully returns the original buffer if ffmpeg is unavailable or fails.
+ */
+function normalizeLoudness(buffer) {
+  const tmpDir = mkdtempSync(join(tmpdir(), "sermon-norm-"));
+  const inputPath = join(tmpDir, "input.mp3");
+  const outputPath = join(tmpDir, "output.mp3");
+  try {
+    writeFileSync(inputPath, buffer);
+
+    // Pass 1: measure integrated loudness — stats are written as JSON to stderr
+    const pass1 = spawnSync("ffmpeg", [
+      "-i", inputPath,
+      "-af", "loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json",
+      "-f", "null", "/dev/null",
+    ]);
+
+    if (pass1.error) {
+      console.warn("  WARN: ffmpeg not available, skipping loudness normalization");
+      return buffer;
+    }
+
+    const stderr1 = pass1.stderr?.toString() ?? "";
+    const jsonMatch = stderr1.match(/\{[\s\S]*?\}/);
+    if (!jsonMatch) {
+      console.warn("  WARN: loudnorm produced no JSON stats, skipping normalization");
+      return buffer;
+    }
+
+    let stats;
+    try {
+      stats = JSON.parse(jsonMatch[0]);
+    } catch {
+      console.warn("  WARN: could not parse loudnorm JSON, skipping normalization");
+      return buffer;
+    }
+
+    // Pass 2: apply linear gain shift using the measured values
+    const af = [
+      "loudnorm=I=-16:TP=-1.5:LRA=11",
+      `measured_I=${stats.input_i}`,
+      `measured_TP=${stats.input_tp}`,
+      `measured_LRA=${stats.input_lra}`,
+      `measured_thresh=${stats.input_thresh}`,
+      `offset=${stats.target_offset}`,
+      "linear=true",
+    ].join(":");
+
+    const pass2 = spawnSync("ffmpeg", [
+      "-i", inputPath,
+      "-af", af,
+      "-ar", "44100",
+      "-y", outputPath,
+    ]);
+
+    if (pass2.status !== 0 || pass2.error) {
+      console.warn("  WARN: ffmpeg pass 2 failed, using original audio");
+      return buffer;
+    }
+
+    const normalized = readFileSync(outputPath);
+    const beforeMB = (buffer.byteLength / 1024 / 1024).toFixed(1);
+    const afterMB = (normalized.byteLength / 1024 / 1024).toFixed(1);
+    console.log(`  NORMALIZED: ${beforeMB} MB → ${afterMB} MB  (measured ${stats.input_i} LUFS → -16 LUFS)`);
+    return normalized;
+  } finally {
+    try { unlinkSync(inputPath); } catch {}
+    try { unlinkSync(outputPath); } catch {}
+    try { rmdirSync(tmpDir); } catch {}
+  }
+}
+
 // ─── Google Drive download + R2 upload ───────────────────────────────────────
 
 async function downloadAndUpload(fileId, r2Key, label) {
@@ -426,13 +531,17 @@ async function downloadAndUpload(fileId, r2Key, label) {
     );
   }
 
+  // Normalize loudness to EBU R128 -16 LUFS (graceful fallback if ffmpeg unavailable)
+  const uploadBody = normalizeLoudness(body);
+  const uploadLength = uploadBody.byteLength;
+
   await R2.send(
     new PutObjectCommand({
       Bucket: R2_BUCKET,
       Key: r2Key,
-      Body: body,
+      Body: uploadBody,
       ContentType: contentType.includes("audio") ? contentType : "audio/mpeg",
-      ContentLength: contentLength,
+      ContentLength: uploadLength,
       Metadata: { "source-label": encodeURIComponent(label) },
     }),
   );
@@ -441,13 +550,13 @@ async function downloadAndUpload(fileId, r2Key, label) {
   const head = await R2.send(
     new HeadObjectCommand({ Bucket: R2_BUCKET, Key: r2Key }),
   );
-  if (head.ContentLength !== contentLength) {
+  if (head.ContentLength !== uploadLength) {
     throw new Error(
-      `Upload size mismatch for ${r2Key}: uploaded ${contentLength} bytes but R2 reports ${head.ContentLength}`,
+      `Upload size mismatch for ${r2Key}: uploaded ${uploadLength} bytes but R2 reports ${head.ContentLength}`,
     );
   }
 
-  // Parse audio metadata (duration) from the buffered file
+  // Parse audio metadata (duration) from the original downloaded buffer
   let durationSecs = 0;
   let duration = "0:00:00";
   try {
@@ -459,9 +568,9 @@ async function downloadAndUpload(fileId, r2Key, label) {
   }
 
   const r2Url = `${R2_PUBLIC_URL}/${r2Key}`;
-  const sizeMB = parseFloat((contentLength / 1024 / 1024).toFixed(1));
+  const sizeMB = parseFloat((uploadLength / 1024 / 1024).toFixed(1));
   console.log(`  UPLOADED ${sizeMB} MB ${duration}: ${r2Key}`);
-  return { r2Url, sizeMB, durationSecs, duration };
+  return { r2Url, sizeMB, durationSecs, duration, normalized: true };
 }
 
 // ─── R2 verify ───────────────────────────────────────────────────────────────
@@ -652,6 +761,136 @@ async function pickSeries(manifest) {
   process.exit(1);
 }
 
+// ─── Normalize test (local file) ─────────────────────────────────────────────
+
+async function normalizeTest(inputPath) {
+  const resolvedPath = resolve(inputPath);
+  if (!existsSync(resolvedPath)) {
+    console.error(`File not found: ${resolvedPath}`);
+    process.exit(1);
+  }
+  const buffer = readFileSync(resolvedPath);
+  console.log(`Input:  ${resolvedPath} (${(buffer.byteLength / 1024 / 1024).toFixed(1)} MB)`);
+  const normalized = normalizeLoudness(buffer);
+  const outputPath = resolvedPath.replace(/(\.[^.]+)$/, ".normalized$1");
+  writeFileSync(outputPath, normalized);
+  console.log(`Output: ${outputPath} (${(normalized.byteLength / 1024 / 1024).toFixed(1)} MB)`);
+}
+
+// ─── Retroactive normalization ────────────────────────────────────────────────
+
+function renderProgressBar({ done, total, success, errors, startMs }) {
+  const isTTY = process.stdout.isTTY;
+  const BAR_WIDTH = 30;
+  const pct = total === 0 ? 1 : done / total;
+  const filled = Math.round(BAR_WIDTH * pct);
+  const bar = "█".repeat(filled) + "░".repeat(BAR_WIDTH - filled);
+  const elapsed = (Date.now() - startMs) / 1000;
+  const rate = done / elapsed; // files/sec
+  const remaining = total - done;
+  const etaSecs = rate > 0 ? remaining / rate : 0;
+  const fmt = (s) => {
+    s = Math.round(s);
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    return h > 0
+      ? `${h}h ${String(m).padStart(2, "0")}m`
+      : `${String(m).padStart(2, "0")}m ${String(sec).padStart(2, "0")}s`;
+  };
+  const pctStr = `${Math.round(pct * 100)}%`;
+  const etaStr = done === total ? "done" : `ETA ~${fmt(etaSecs)}`;
+  const line = `  [${bar}] ${done}/${total} (${pctStr})  ✓ ${success}  ✗ ${errors}  ${fmt(elapsed)} elapsed  ${etaStr}`;
+  if (isTTY) {
+    process.stdout.write(`\r${line}`);
+    if (done === total) process.stdout.write("\n");
+  } else {
+    console.log(line);
+  }
+}
+
+async function normalizeAll() {
+  if (!existsSync(MANIFEST_FILE)) {
+    console.log("No manifest found. Run --discover first.");
+    return;
+  }
+  const manifest = JSON.parse(readFileSync(MANIFEST_FILE, "utf-8"));
+
+  let toNormalize = manifest.filter(
+    (e) => e.status === "done" && e.r2Key && !e.normalized,
+  );
+  if (LIMIT < Infinity) toNormalize = toNormalize.slice(0, LIMIT);
+
+  console.log(`Found ${toNormalize.length} entries to normalize.\n`);
+  if (!toNormalize.length) {
+    console.log("Nothing to normalize.");
+    return;
+  }
+
+  let successCount = 0;
+  let errorCount = 0;
+  const startMs = Date.now();
+  const errors = [];
+
+  for (let i = 0; i < toNormalize.length; i++) {
+    const e = toNormalize[i];
+
+    // Print current file above the progress bar
+    if (process.stdout.isTTY) process.stdout.write("\r\x1b[K");
+    console.log(`  [${i + 1}/${toNormalize.length}] ${e.title ?? e.r2Key}`);
+
+    try {
+      const url = `${R2_PUBLIC_URL}/${e.r2Key}`;
+      const res = await fetchWithRetry(url);
+      const original = Buffer.from(await res.arrayBuffer());
+
+      const uploadBody = normalizeLoudness(original);
+      const uploadLength = uploadBody.byteLength;
+
+      await R2.send(
+        new PutObjectCommand({
+          Bucket: R2_BUCKET,
+          Key: e.r2Key,
+          Body: uploadBody,
+          ContentType: "audio/mpeg",
+          ContentLength: uploadLength,
+          Metadata: { "source-label": encodeURIComponent(e.title ?? e.r2Key) },
+        }),
+      );
+
+      const head = await R2.send(
+        new HeadObjectCommand({ Bucket: R2_BUCKET, Key: e.r2Key }),
+      );
+      if (head.ContentLength !== uploadLength) {
+        throw new Error(
+          `Upload size mismatch: uploaded ${uploadLength} bytes but R2 reports ${head.ContentLength}`,
+        );
+      }
+
+      e.sizeMB = parseFloat((uploadLength / 1024 / 1024).toFixed(1));
+      e.normalized = true;
+      writeFileSync(MANIFEST_FILE, JSON.stringify(manifest, null, 2));
+      successCount++;
+    } catch (err) {
+      if (process.stdout.isTTY) process.stdout.write("\r\x1b[K");
+      console.error(`  ERROR: ${err.message}`);
+      errors.push({ title: e.title ?? e.r2Key, error: err.message });
+      errorCount++;
+    }
+
+    renderProgressBar({ done: i + 1, total: toNormalize.length, success: successCount, errors: errorCount, startMs });
+    await sleep(300);
+  }
+
+  console.log(`\n─── Done ───────────────────────────────────────────`);
+  console.log(`  Normalized: ${successCount}`);
+  console.log(`  Errors:     ${errorCount}`);
+  if (errors.length) {
+    console.log(`\n  Failed files:`);
+    for (const e of errors) console.log(`    ✗ ${e.title}\n      ${e.error}`);
+  }
+}
+
 // ─── Metadata backfill ───────────────────────────────────────────────────────
 
 async function fixMetadata() {
@@ -706,6 +945,18 @@ async function fixMetadata() {
 //   "error"    — upload or scrape failed (will be retried on next run)
 
 async function run() {
+  // ── --normalize-test: normalize a local file and write .normalized.mp3 ──────
+  if (NORMALIZE_TEST) {
+    await normalizeTest(NORMALIZE_TEST);
+    return;
+  }
+
+  // ── --normalize-all: retroactively normalize all uploaded entries in R2 ─────
+  if (NORMALIZE_ALL) {
+    await normalizeAll();
+    return;
+  }
+
   // ── --verify: cross-check manifest against live R2 bucket ──────────────────
   if (VERIFY) {
     await verify();
@@ -878,9 +1129,10 @@ async function run() {
     let sizeMB = null;
     let durationSecs = null;
     let duration = null;
+    let normalized = false;
     try {
       await sleep(DOWNLOAD_DELAY);
-      ({ r2Url, sizeMB, durationSecs, duration } = await downloadAndUpload(
+      ({ r2Url, sizeMB, durationSecs, duration, normalized } = await downloadAndUpload(
         pageData.fileId,
         r2Key,
         pageData.title,
@@ -913,6 +1165,7 @@ async function run() {
       sizeMB,
       durationSecs,
       duration,
+      normalized: normalized || undefined,
       status: "done",
     };
     upsertManifest(manifest, manifestByUrl, entry);

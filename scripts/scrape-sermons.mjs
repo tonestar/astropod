@@ -55,22 +55,14 @@ import {
 import * as cheerio from "cheerio";
 
 // ─── macOS TLS fix ───────────────────────────────────────────────────────────
-// Node.js doesn't read from the macOS system keychain, so some CAs trusted by
-// Safari/Chrome are unknown to Node. Re-launch with system root certs injected.
-if (process.platform === "darwin" && !process.env.NODE_EXTRA_CA_CERTS) {
-  const caResult = spawnSync("security", [
-    "find-certificate", "-a", "-p",
-    "/System/Library/Keychains/SystemRootCertificates.keychain",
-  ]);
-  if (!caResult.error && caResult.status === 0) {
-    const caPath = join(tmpdir(), "node-macos-roots.pem");
-    writeFileSync(caPath, caResult.stdout);
-    const child = spawnSync(process.execPath, process.argv.slice(1), {
-      env: { ...process.env, NODE_EXTRA_CA_CERTS: caPath },
-      stdio: "inherit",
-    });
-    process.exit(child.status ?? 0);
-  }
+// On MDM-managed Macs (e.g. JumpCloud), TLS inspection replaces certificates
+// with ones Node.js doesn't trust. Re-launch with verification relaxed.
+if (process.platform === "darwin" && !process.env._TLS_FIXED) {
+  const child = spawnSync(process.execPath, process.argv.slice(1), {
+    env: { ...process.env, _TLS_FIXED: "1", NODE_TLS_REJECT_UNAUTHORIZED: "0" },
+    stdio: "inherit",
+  });
+  process.exit(child.status ?? 0);
 }
 
 // Load scripts/.env automatically if it exists

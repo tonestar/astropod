@@ -7507,5 +7507,49 @@
     "durationSecs": 2250,
     "duration": "0:37:30",
     "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/doctrines-of-grace-part-20/",
+    "slug": "doctrines-of-grace-part-20",
+    "title": "Doctrines of Grace – Part 20",
+    "speaker": "Joe Fleener",
+    "date": "24 May, 2026",
+    "series": "Doctrines of Grace",
+    "topics": [
+      "(Topical)"
+    ],
+    "fileId": "1pCYu6EmN-I_dAJY0fnTxIiSkbx3n_xIS",
+    "driveHref": "https://drive.google.com/file/d/1pCYu6EmN-I_dAJY0fnTxIiSkbx3n_xIS/view?usp=share_link",
+    "sitemapDate": "2026-05-24T14:27:43+12:00",
+    "category": "seminar",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/seminars/doctrines-of-grace/2026/doctrines-of-grace-part-20.mp3",
+    "status": "done",
+    "r2Key": "seminars/doctrines-of-grace/2026/doctrines-of-grace-part-20.mp3",
+    "sizeMB": 27.5,
+    "durationSecs": 2405,
+    "duration": "0:40:05",
+    "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/luke-19-11-48/",
+    "slug": "luke-19-11-48",
+    "title": "Luke 19:11-48",
+    "speaker": "Joe Fleener",
+    "date": "24 May, 2026",
+    "series": "Luke",
+    "topics": [
+      "Luke"
+    ],
+    "fileId": "1lMvk5ca3vYb5AbYuljWirTevlm9eX9vT",
+    "driveHref": "https://drive.google.com/file/d/1lMvk5ca3vYb5AbYuljWirTevlm9eX9vT/view?usp=share_link",
+    "sitemapDate": "2026-05-24T14:28:49+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/luke/2026/luke-19-11-48.mp3",
+    "status": "done",
+    "r2Key": "sermons/luke/2026/luke-19-11-48.mp3",
+    "sizeMB": 27.7,
+    "durationSecs": 2417,
+    "duration": "0:40:17",
+    "normalized": true
   }
 ]

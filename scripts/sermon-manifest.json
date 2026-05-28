@@ -7483,8 +7483,7 @@
     "r2Key": "seminars/doctrines-of-grace/2026/doctrines-of-grace-part-19.mp3",
     "sizeMB": 29.9,
     "durationSecs": 2613,
-    "duration": "0:43:33",
-    "normalized": true
+    "duration": "0:43:33"
   },
   {
     "url": "https://www.rollestonbaptist.org.nz/messages/luke-18-31-19-10/",
@@ -7505,8 +7504,7 @@
     "r2Key": "sermons/luke/2026/luke-18-31-19-10.mp3",
     "sizeMB": 25.7,
     "durationSecs": 2250,
-    "duration": "0:37:30",
-    "normalized": true
+    "duration": "0:37:30"
   },
   {
     "url": "https://www.rollestonbaptist.org.nz/messages/doctrines-of-grace-part-20/",
@@ -7527,8 +7525,7 @@
     "r2Key": "seminars/doctrines-of-grace/2026/doctrines-of-grace-part-20.mp3",
     "sizeMB": 27.5,
     "durationSecs": 2405,
-    "duration": "0:40:05",
-    "normalized": true
+    "duration": "0:40:05"
   },
   {
     "url": "https://www.rollestonbaptist.org.nz/messages/luke-19-11-48/",
@@ -7549,7 +7546,6 @@
     "r2Key": "sermons/luke/2026/luke-19-11-48.mp3",
     "sizeMB": 27.7,
     "durationSecs": 2417,
-    "duration": "0:40:17",
-    "normalized": true
+    "duration": "0:40:17"
   }
 ]

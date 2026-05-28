@@ -562,7 +562,7 @@ async function downloadAndUpload(fileId, r2Key, label) {
   const r2Url = `${R2_PUBLIC_URL}/${r2Key}`;
   const sizeMB = parseFloat((uploadLength / 1024 / 1024).toFixed(1));
   console.log(`  UPLOADED ${sizeMB} MB ${duration}: ${r2Key}`);
-  return { r2Url, sizeMB, durationSecs, duration, normalized: true };
+  return { r2Url, sizeMB, durationSecs, duration, normalized: uploadBody !== body };
 }
 
 // ─── R2 verify ───────────────────────────────────────────────────────────────

@@ -33,7 +33,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install ffmpeg
-        run: sudo apt-get install -y --fix-missing ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
       - name: Discover new sermons
         run: node scripts/scrape-sermons.mjs --discover

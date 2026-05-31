@@ -7551,5 +7551,27 @@
     "durationSecs": 2417,
     "duration": "0:40:17",
     "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/luke-20-1-19/",
+    "slug": "luke-20-1-19",
+    "title": "Luke 20:1-19",
+    "speaker": "Joe Fleener",
+    "date": "31 May, 2026",
+    "series": "Luke",
+    "topics": [
+      "1 Peter, Acts, Luke"
+    ],
+    "fileId": "16LtdJ6H_OFlM-PsziAvWkFAC05tmfm4w",
+    "driveHref": "https://drive.google.com/file/d/16LtdJ6H_OFlM-PsziAvWkFAC05tmfm4w/view?usp=share_link",
+    "sitemapDate": "2026-05-31T13:01:57+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/luke/2026/luke-20-1-19.mp3",
+    "status": "done",
+    "r2Key": "sermons/luke/2026/luke-20-1-19.mp3",
+    "sizeMB": 21,
+    "durationSecs": 1373,
+    "duration": "0:22:53",
+    "normalized": true
   }
 ]

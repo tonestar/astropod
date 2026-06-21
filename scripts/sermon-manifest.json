@@ -7661,5 +7661,49 @@
     "durationSecs": 2415,
     "duration": "0:40:15",
     "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/doctrines-of-grace-part-23/",
+    "slug": "doctrines-of-grace-part-23",
+    "title": "Doctrines of Grace – Part 23",
+    "speaker": "Joe Fleener",
+    "date": "21 June, 2026",
+    "series": "Doctrines of Grace",
+    "topics": [
+      "(Topical)"
+    ],
+    "fileId": "1hy4uy809JSwP8hnvrXHdjou_2scusZUC",
+    "driveHref": "https://drive.google.com/file/d/1hy4uy809JSwP8hnvrXHdjou_2scusZUC/view?usp=share_link",
+    "sitemapDate": "2026-06-21T13:10:44+12:00",
+    "category": "seminar",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/seminars/doctrines-of-grace/2026/doctrines-of-grace-part-23.mp3",
+    "status": "done",
+    "r2Key": "seminars/doctrines-of-grace/2026/doctrines-of-grace-part-23.mp3",
+    "sizeMB": 34.1,
+    "durationSecs": 2233,
+    "duration": "0:37:13",
+    "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/luke-22-1-30/",
+    "slug": "luke-22-1-30",
+    "title": "Luke 22:1-30",
+    "speaker": "Joe Fleener",
+    "date": "21 June, 2026",
+    "series": "Luke",
+    "topics": [
+      "Luke"
+    ],
+    "fileId": "1TdvdGBHbqdfr97_Ouw52GCDKOUbaUHjK",
+    "driveHref": "https://drive.google.com/file/d/1TdvdGBHbqdfr97_Ouw52GCDKOUbaUHjK/view?usp=share_link",
+    "sitemapDate": "2026-06-21T13:11:42+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/luke/2026/luke-22-1-30.mp3",
+    "status": "done",
+    "r2Key": "sermons/luke/2026/luke-22-1-30.mp3",
+    "sizeMB": 36.9,
+    "durationSecs": 2421,
+    "duration": "0:40:21",
+    "normalized": true
   }
 ]

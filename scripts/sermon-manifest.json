@@ -7705,5 +7705,71 @@
     "durationSecs": 2421,
     "duration": "0:40:21",
     "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/1-john-2-3-6/",
+    "slug": "1-john-2-3-6",
+    "title": "1 John 2:3-6",
+    "speaker": "Philip Hanson",
+    "date": "7 July, 2026",
+    "series": "1 John",
+    "topics": [
+      "1 John"
+    ],
+    "fileId": "1JRTLEzKaotJfFi9iFEtCT6xwVdXFsikp",
+    "driveHref": "https://drive.google.com/file/d/1JRTLEzKaotJfFi9iFEtCT6xwVdXFsikp/view?usp=share_link",
+    "sitemapDate": "2026-07-07T09:21:55+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/1-john/2026/1-john-2-3-6.mp3",
+    "status": "done",
+    "r2Key": "sermons/1-john/2026/1-john-2-3-6.mp3",
+    "sizeMB": 32.1,
+    "durationSecs": 2106,
+    "duration": "0:35:06",
+    "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/1-john-2-7-11/",
+    "slug": "1-john-2-7-11",
+    "title": "1 John 2:7-11",
+    "speaker": "Philip Hanson",
+    "date": "7 July, 2026",
+    "series": "1 John",
+    "topics": [
+      "1 John"
+    ],
+    "fileId": "1o_Qg5f0QJcyG4pu3ihCT_1zV-L7_XlOu",
+    "driveHref": "https://drive.google.com/file/d/1o_Qg5f0QJcyG4pu3ihCT_1zV-L7_XlOu/view?usp=share_link",
+    "sitemapDate": "2026-07-07T09:22:09+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/1-john/2026/1-john-2-7-11.mp3",
+    "status": "done",
+    "r2Key": "sermons/1-john/2026/1-john-2-7-11.mp3",
+    "sizeMB": 25.7,
+    "durationSecs": 1682,
+    "duration": "0:28:02",
+    "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/luke-22-31-62/",
+    "slug": "luke-22-31-62",
+    "title": "Luke 22:31-62",
+    "speaker": "Joe Fleener",
+    "date": "13 July, 2026",
+    "series": "Luke",
+    "topics": [
+      "Luke"
+    ],
+    "fileId": "1IiXTqogRHYZZWfqypcdQsFLPhNDxhyrq",
+    "driveHref": "https://drive.google.com/file/d/1IiXTqogRHYZZWfqypcdQsFLPhNDxhyrq/view?usp=share_link",
+    "sitemapDate": "2026-07-13T06:17:04+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/luke/2026/luke-22-31-62.mp3",
+    "status": "done",
+    "r2Key": "sermons/luke/2026/luke-22-31-62.mp3",
+    "sizeMB": 32.4,
+    "durationSecs": 2122,
+    "duration": "0:35:22",
+    "normalized": true
   }
 ]

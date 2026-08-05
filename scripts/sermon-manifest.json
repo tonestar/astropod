@@ -7837,5 +7837,49 @@
     "durationSecs": 2187,
     "duration": "0:36:27",
     "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/session-2-the-malignancy-of-sin-the-remedy-for-sin-part-1/",
+    "slug": "session-2-the-malignancy-of-sin-the-remedy-for-sin-part-1",
+    "title": "Session 2 – The Malignancy of Sin, The Remedy for Sin, Part 1",
+    "speaker": "Joe Fleener",
+    "date": "2 August, 2026",
+    "series": "Respectable Sins",
+    "topics": [
+      "(Topical)"
+    ],
+    "fileId": "1Gs6Y8PZz6qQym61FpjNOO5AAJtz_SVUc",
+    "driveHref": "https://drive.google.com/file/d/1Gs6Y8PZz6qQym61FpjNOO5AAJtz_SVUc/view?usp=sharing",
+    "sitemapDate": "2026-08-02T17:22:30+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/respectable-sins/2026/session-2-the-malignancy-of-sin-the-remedy-for-sin-part-1.mp3",
+    "status": "done",
+    "r2Key": "sermons/respectable-sins/2026/session-2-the-malignancy-of-sin-the-remedy-for-sin-part-1.mp3",
+    "sizeMB": 40.4,
+    "durationSecs": 2647,
+    "duration": "0:44:07",
+    "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/luke-24-1-12/",
+    "slug": "luke-24-1-12",
+    "title": "Luke 24:1-12",
+    "speaker": "Joe Fleener",
+    "date": "2 August, 2026",
+    "series": "Luke",
+    "topics": [
+      "Luke"
+    ],
+    "fileId": "1qLJUrkH2hWm62ngSPLbvujrc__hn22Bw",
+    "driveHref": "https://drive.google.com/file/d/1qLJUrkH2hWm62ngSPLbvujrc__hn22Bw/view?usp=sharing",
+    "sitemapDate": "2026-08-02T17:23:30+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/luke/2026/luke-24-1-12.mp3",
+    "status": "done",
+    "r2Key": "sermons/luke/2026/luke-24-1-12.mp3",
+    "sizeMB": 30.1,
+    "durationSecs": 1975,
+    "duration": "0:32:55",
+    "normalized": true
   }
 ]

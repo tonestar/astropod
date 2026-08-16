@@ -7881,5 +7881,71 @@
     "durationSecs": 1975,
     "duration": "0:32:55",
     "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/session-2-the-malignancy-of-sin-the-remedy-for-sin-part-2/",
+    "slug": "session-2-the-malignancy-of-sin-the-remedy-for-sin-part-2",
+    "title": "Session 2 – The Malignancy of Sin, The Remedy for Sin, Part 2",
+    "speaker": "Joe Fleener",
+    "date": "9 August, 2026",
+    "series": "Respectable Sins",
+    "topics": [
+      "(Topical)"
+    ],
+    "fileId": "1qXOzTLxfE0efAZMR9-KkAhKB-Ue09TBf",
+    "driveHref": "https://drive.google.com/file/d/1qXOzTLxfE0efAZMR9-KkAhKB-Ue09TBf/view?usp=sharing",
+    "sitemapDate": "2026-08-09T13:04:37+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/respectable-sins/2026/session-2-the-malignancy-of-sin-the-remedy-for-sin-part-2.mp3",
+    "status": "done",
+    "r2Key": "sermons/respectable-sins/2026/session-2-the-malignancy-of-sin-the-remedy-for-sin-part-2.mp3",
+    "sizeMB": 37.4,
+    "durationSecs": 2449,
+    "duration": "0:40:49",
+    "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/luke-24-1-53/",
+    "slug": "luke-24-1-53",
+    "title": "Luke 24:1-53",
+    "speaker": "Joe Fleener",
+    "date": "9 August, 2026",
+    "series": "Luke",
+    "topics": [
+      "Luke"
+    ],
+    "fileId": "1I-7K8PhUFLRUDI3F7vcz-fnS8GhRRiLW",
+    "driveHref": "https://drive.google.com/file/d/1I-7K8PhUFLRUDI3F7vcz-fnS8GhRRiLW/view?usp=sharing",
+    "sitemapDate": "2026-08-09T13:05:48+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/luke/2026/luke-24-1-53.mp3",
+    "status": "done",
+    "r2Key": "sermons/luke/2026/luke-24-1-53.mp3",
+    "sizeMB": 31.9,
+    "durationSecs": 2088,
+    "duration": "0:34:48",
+    "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/hebrews-9-27-selected-texts/",
+    "slug": "hebrews-9-27-selected-texts",
+    "title": "Hebrews 9:27 & Selected Texts",
+    "speaker": "Joel Jacob",
+    "date": "16 August, 2026",
+    "series": "Standalone Sermons",
+    "topics": [
+      "(Topical), Hebrews"
+    ],
+    "fileId": "1vvbSTlHXbCt3l5UkxycsSGCVtnIX3UJu",
+    "driveHref": "https://drive.google.com/file/d/1vvbSTlHXbCt3l5UkxycsSGCVtnIX3UJu/view?usp=sharing",
+    "sitemapDate": "2026-08-16T13:01:01+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/standalone-sermons/2026/hebrews-9-27-selected-texts.mp3",
+    "status": "done",
+    "r2Key": "sermons/standalone-sermons/2026/hebrews-9-27-selected-texts.mp3",
+    "sizeMB": 29.4,
+    "durationSecs": 1925,
+    "duration": "0:32:05",
+    "normalized": true
   }
 ]

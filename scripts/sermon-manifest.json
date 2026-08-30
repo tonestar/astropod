@@ -7991,5 +7991,49 @@
     "durationSecs": 2637,
     "duration": "0:43:57",
     "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/session-3-part-2-directions/",
+    "slug": "session-3-part-2-directions",
+    "title": "Session 3 – Part 2- Directions",
+    "speaker": "Joe Fleener",
+    "date": "30 August, 2026",
+    "series": "Respectable Sins",
+    "topics": [
+      "(Topical)"
+    ],
+    "fileId": "1VwYvzzCUX9DE2fEvJhafqLWtvnSvSLFJ",
+    "driveHref": "https://drive.google.com/file/d/1VwYvzzCUX9DE2fEvJhafqLWtvnSvSLFJ/view?usp=sharing",
+    "sitemapDate": "2026-08-30T13:04:11+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/respectable-sins/2026/session-3-part-2-directions.mp3",
+    "status": "done",
+    "r2Key": "sermons/respectable-sins/2026/session-3-part-2-directions.mp3",
+    "sizeMB": 36.1,
+    "durationSecs": 2368,
+    "duration": "0:39:28",
+    "normalized": true
+  },
+  {
+    "url": "https://www.rollestonbaptist.org.nz/messages/57-psalm-2/",
+    "slug": "57-psalm-2",
+    "title": "Psalm 2",
+    "speaker": "Joe Fleener",
+    "date": "30 August, 2026",
+    "series": "Psalms",
+    "topics": [
+      "Psalms"
+    ],
+    "fileId": "1qssMLdQHqId-Fh_EL4kYHcztxU9vwid0",
+    "driveHref": "https://drive.google.com/file/d/1qssMLdQHqId-Fh_EL4kYHcztxU9vwid0/view?usp=sharing",
+    "sitemapDate": "2026-08-30T13:05:54+12:00",
+    "category": "sermon",
+    "r2Url": "https://pub-78341e7c021e425e874803eed5498bb5.r2.dev/sermons/psalms/2026/57-psalm-2.mp3",
+    "status": "done",
+    "r2Key": "sermons/psalms/2026/57-psalm-2.mp3",
+    "sizeMB": 31,
+    "durationSecs": 2033,
+    "duration": "0:33:53",
+    "normalized": true
   }
 ]
